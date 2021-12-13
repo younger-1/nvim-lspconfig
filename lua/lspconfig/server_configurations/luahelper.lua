@@ -1,8 +1,16 @@
 local util = require 'lspconfig.util'
 
+local bin_name = 'lualsp'
+
+if vim.fn.has 'unix' == 1 then
+  bin_name = 'linux' .. bin_name
+else if vim.fn.has 'mac' == 1 then
+  bin_name = 'mac' .. bin_name
+end
+
 return {
   default_config = {
-    cmd = { 'luahelper', '-mode', '1' },
+    cmd = { bin_name, '-mode', '1' },
     filetypes = { 'lua' },
     root_dir = util.find_git_ancestor,
     single_file_support = true,
