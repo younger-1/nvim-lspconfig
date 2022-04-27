@@ -14,10 +14,11 @@ return {
     filetypes = { 'lean3' },
     offset_encoding = 'utf-32',
     root_dir = function(fname)
+      fname = util.path.sanitize(fname)
       -- check if inside elan stdlib
       local stdlib_dir
       do
-        local _, endpos = fname:find(util.path.sep .. util.path.join('lean', 'library'))
+        local _, endpos = fname:find '/lean/library'
         if endpos then
           stdlib_dir = fname:sub(1, endpos)
         end
@@ -47,7 +48,7 @@ that plugin fully handles the setup of the Lean language server,
 and you shouldn't set up `lean3ls` both with it and `lspconfig`.
     ]],
     default_config = {
-      root_dir = [[root_pattern("leanpkg.toml") or root_pattern(".git") or path.dirname]],
+      root_dir = [[root_pattern("leanpkg.toml") or root_pattern(".git")]],
     },
   },
 }
