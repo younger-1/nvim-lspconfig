@@ -1359,7 +1359,7 @@ require'lspconfig'.biome.setup{}
   ```
   - `filetypes` : 
   ```lua
-  { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescript.tsx", "typescriptreact", "astro", "svelte", "vue", "css" }
+  { "astro", "css", "graphql", "javascript", "javascriptreact", "json", "jsonc", "svelte", "typescript", "typescript.tsx", "typescriptreact", "vue" }
   ```
   - `root_dir` : 
   ```lua
@@ -5592,10 +5592,6 @@ require'lspconfig'.hls.setup{}
   ```lua
   { "haskell", "lhaskell" }
   ```
-  - `lspinfo` : 
-  ```lua
-  see source file
-  ```
   - `root_dir` : 
   ```lua
   root_pattern("hie.yaml", "stack.yaml", "cabal.project", "*.cabal", "package.yaml")
@@ -6158,7 +6154,7 @@ cp $(go env GOPATH)/bin/jq-lsp /usr/local/bin
 Note: To activate properly nvim needs to know the jq filetype.
 You can add it via:
 ```lua
-vim.cmd(\[\[au BufRead,BufNewFile *.jq setfiletype jq\]\])
+vim.cmd([[au BufRead,BufNewFile *.jq setfiletype jq]])
 ```
 
 
@@ -6823,7 +6819,7 @@ require'lspconfig'.lua_ls.setup {
           -- "${3rd}/luv/library"
           -- "${3rd}/busted/library",
         }
-        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
         -- library = vim.api.nvim_get_runtime_file("", true)
       }
     })
@@ -12518,7 +12514,6 @@ require'lspconfig'.texlab.setup{}
   ```lua
   {
     texlab = {
-      auxDirectory = ".",
       bibtexFormatter = "texlab",
       build = {
         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
@@ -13313,7 +13308,7 @@ cargo install --path .
 Note: To activate properly nvim needs to know the uvl filetype.
 You can add it via:
 ```lua
-vim.cmd(\[\[au BufRead,BufNewFile *.uvl setfiletype uvl\]\])
+vim.cmd([[au BufRead,BufNewFile *.uvl setfiletype uvl]])
 ```
 
 
