@@ -11388,7 +11388,7 @@ Default config:
     annotation_paths = {},
     debugger_port = -1,
     high_precision = false,
-    java = "/usr/lib/jvm/temurin-17-jdk-amd64/bin/java",
+    java = "/usr/lib/jvm/temurin-11-jdk-amd64/bin/java",
     java_opts = { "-Xmx3000m", "-Xss1m" },
     logfile = "/home/user/.cache/nvim/vdm-lsp.log",
     mavenrepo = "/home/user/.m2/repository/com/fujitsu"
